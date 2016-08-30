@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <pd:name>Practice/JDBC/JDBC_Example/Acct_Detail_SQLProcess/Acct_insert.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>113</pd:startX>
+    <pd:startY>172</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>478</pd:endX>
+    <pd:endY>176</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1470422178860</pd:targetNamespace>
+    <pd:activity name="JDBC Update">
+        <pd:type>com.tibco.plugin.jdbc.JDBCUpdateActivity</pd:type>
+        <pd:resourceType>ae.activities.JDBCUpdateActivity</pd:resourceType>
+        <pd:x>297</pd:x>
+        <pd:y>175</pd:y>
+        <config>
+            <timeout>10</timeout>
+            <commit>false</commit>
+            <emptyStrAsNil>false</emptyStrAsNil>
+            <jdbcSharedConfig>/SharedResources/JDBC Connection.sharedjdbc</jdbcSharedConfig>
+            <statement>insert into acct values (?,?,?,?)</statement>
+            <batchUpdate>false</batchUpdate>
+            <Prepared_Param_DataType>
+                <parameter>
+                    <parameterName>accno</parameterName>
+                    <dataType>BIGINT</dataType>
+                </parameter>
+                <parameter>
+                    <parameterName>accname</parameterName>
+                    <dataType>VARCHAR</dataType>
+                </parameter>
+                <parameter>
+                    <parameterName>branch</parameterName>
+                    <dataType>VARCHAR</dataType>
+                </parameter>
+                <parameter>
+                    <parameterName>amount</parameterName>
+                    <dataType>DECIMAL</dataType>
+                </parameter>
+            </Prepared_Param_DataType>
+        </config>
+        <pd:inputBindings>
+            <jdbcUpdateActivityInput>
+                <accno>
+                    <xsl:value-of select="56789124023"/>
+                </accno>
+                <accname>
+                    <xsl:value-of select="'goutam'"/>
+                </accname>
+                <branch>
+                    <xsl:value-of select="'madilapalem'"/>
+                </branch>
+                <amount>
+                    <xsl:value-of select="4000"/>
+                </amount>
+            </jdbcUpdateActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>JDBC Update</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>JDBC Update</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/MULTIPLICATION_WSDL/MUL_Schema/Schema.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pfx="http://xmlns.example.com/1470860904473/MUL_OperationImpl/Practice/WebServices/MUL__SOAPProcess">
+    <wsdl:import namespace="http://xmlns.example.com/1470860904473/MUL_OperationImpl/Practice/WebServices/MUL__SOAPProcess" location="/SharedResources/WSDL/MULTIPLICATION_WSDL/MUL_ConcreteWSDL/WSDL.wsdl"/>
+    <pd:name>Practice/WebServices/MUL_SOAPProcess/MUL_ClientProcess.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1470861112138</pd:targetNamespace>
+    <pd:activity name="SOAPRequestReply">
+        <pd:type>com.tibco.plugin.soap.SOAPSendReceiveActivity</pd:type>
+        <pd:resourceType>ae.activities.SOAPSendReceiveUI</pd:resourceType>
+        <pd:x>282</pd:x>
+        <pd:y>74</pd:y>
+        <config>
+            <timeout>0</timeout>
+            <soapAttachmentStyle>SwA</soapAttachmentStyle>
+            <timeoutType>Seconds</timeoutType>
+            <service>pfx:MUL__ServerProcess</service>
+            <servicePort>SOAPEventSource</servicePort>
+            <operation>MUL_Operation</operation>
+            <soapAction>/Practice/WebServices/MUL_SOAPProcess/MUL_ServerProcess</soapAction>
+            <endpointURL>http://localhost:1234/Practice/WebServices/MUL_SOAPProcess/MUL_ServerProcess</endpointURL>
+            <authScheme>NONE</authScheme>
+        </config>
+        <pd:inputBindings>
+            <inputMessage>
+                <ns:MultiDetail>
+                    <ns:Multi>
+                        <ns:a>
+                            <xsl:value-of select="20"/>
+                        </ns:a>
+                        <ns:b>
+                            <xsl:value-of select="5"/>
+                        </ns:b>
+                    </ns:Multi>
+                </ns:MultiDetail>
+            </inputMessage>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>SOAPRequestReply</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>SOAPRequestReply</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

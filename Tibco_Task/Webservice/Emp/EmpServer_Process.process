@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:ns2="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/Schema.xsd2" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns1="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema.xsd" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns4="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema1.xsd" xmlns:ns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/Schema.xsd" xmlns:ns3="http://xmlns.tibco.com/encodings/mime" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pfx3="http://xmlns.example.com/1470972527628" xmlns:pfx2="http://xmlns.example.com/1470856136599" xmlns:ns5="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd3" xmlns:ns6="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd4" xmlns:pfx="http://xmlns.example.com/1470800690074">
+    <wsdl:import namespace="http://xmlns.example.com/1470800690074" location="/SharedResources/OLD/ABSTRACT_WSDL/ADD_ABSTRACTWSDL/Add_AbstractWSDL.wsdl"/>
+    <wsdl:import namespace="http://xmlns.example.com/1470856136599" location="/SharedResources/WSDL/ADD_WSDL/ADDABSTRACT_WSDL/ADD_ABSTRACTWSDL.wsdl"/>
+    <wsdl:import namespace="http://xmlns.example.com/1470972527628" location="/SharedResources/EMP_AbstractWSDL.wsdl"/>
+    <pd:name>Webservice/Emp/EmpServer_Process.process</pd:name>
+    <pd:startName>SOAPEventSource</pd:startName>
+    <pd:startX>0</pd:startX>
+    <pd:startY>0</pd:startY>
+    <pd:returnBindings/>
+    <pd:starter name="SOAPEventSource">
+        <pd:type>com.tibco.plugin.soap.SOAPEventSource</pd:type>
+        <pd:resourceType>ae.activities.SOAPEventSourceUI</pd:resourceType>
+        <pd:x>166</pd:x>
+        <pd:y>80</pd:y>
+        <config>
+            <service>pfx3:PortType</service>
+            <wsdlNamespaceRoot>http://xmlns.example.com/1470972527628/EMP_OperationImpl</wsdlNamespaceRoot>
+            <operation>EMP_Operation</operation>
+            <portAddressPrefix/>
+            <operationStyle>document</operationStyle>
+            <soapUse>literal</soapUse>
+            <embedWsdlComponents>true</embedWsdlComponents>
+            <embedSchemaComponents>true</embedSchemaComponents>
+            <soapAction>/Webservice/AddServer_Process</soapAction>
+            <sharedChannel>/SharedResources/HTTP Connection.sharedhttp</sharedChannel>
+            <soapAttachmentStyle>SwA</soapAttachmentStyle>
+            <inputAttachmentBindings/>
+            <outputAttachmentBindings/>
+        </config>
+        <pd:inputBindings/>
+    </pd:starter>
+    <pd:endName>End</pd:endName>
+    <pd:endX>743</pd:endX>
+    <pd:endY>77</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1470800979101</pd:targetNamespace>
+    <pd:activity name="SOAPSendReply">
+        <pd:type>com.tibco.plugin.soap.SOAPSendReplyActivity</pd:type>
+        <pd:resourceType>ae.activities.SOAPSendReplyUI</pd:resourceType>
+        <pd:x>599</pd:x>
+        <pd:y>87</pd:y>
+        <config>
+            <eventSource>SOAPEventSource</eventSource>
+        </config>
+        <pd:inputBindings>
+            <outputMessage>
+                <ns6:Emp_Resp>
+                    <xsl:for-each select="$JDBC-Query/resultSet/Record[1]">
+                        <ns6:empres>
+                            <ns6:name>
+                                <xsl:value-of select="NAME"/>
+                            </ns6:name>
+                            <ns6:desig>
+                                <xsl:value-of select="DESIG"/>
+                            </ns6:desig>
+                            <ns6:sal>
+                                <xsl:value-of select="round(SAL)"/>
+                            </ns6:sal>
+                        </ns6:empres>
+                    </xsl:for-each>
+                </ns6:Emp_Resp>
+            </outputMessage>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="JDBC Query">
+        <pd:type>com.tibco.plugin.jdbc.JDBCQueryActivity</pd:type>
+        <pd:resourceType>ae.activities.JDBCQueryActivity</pd:resourceType>
+        <pd:x>315</pd:x>
+        <pd:y>79</pd:y>
+        <config>
+            <timeout>10</timeout>
+            <commit>false</commit>
+            <maxRows>100</maxRows>
+            <emptyStrAsNil>false</emptyStrAsNil>
+            <jdbcSharedConfig>/SharedResources/JDBC Connection.sharedjdbc</jdbcSharedConfig>
+            <statement>select name,desig,sal from emp where no=?</statement>
+            <oraObjects/>
+            <oraTables/>
+            <QueryOutputCachedSchemaColumns>NAME</QueryOutputCachedSchemaColumns>
+            <QueryOutputCachedSchemaDataTypes>12</QueryOutputCachedSchemaDataTypes>
+            <QueryOutputCachedSchemaDataTypesName>varchar2</QueryOutputCachedSchemaDataTypesName>
+            <QueryOutputCachedSchemaStatus>OptionalElement</QueryOutputCachedSchemaStatus>
+            <QueryOutputCachedSchemaColumns>DESIG</QueryOutputCachedSchemaColumns>
+            <QueryOutputCachedSchemaDataTypes>12</QueryOutputCachedSchemaDataTypes>
+            <QueryOutputCachedSchemaDataTypesName>varchar2</QueryOutputCachedSchemaDataTypesName>
+            <QueryOutputCachedSchemaStatus>OptionalElement</QueryOutputCachedSchemaStatus>
+            <QueryOutputCachedSchemaColumns>SAL</QueryOutputCachedSchemaColumns>
+            <QueryOutputCachedSchemaDataTypes>2</QueryOutputCachedSchemaDataTypes>
+            <QueryOutputCachedSchemaDataTypesName>number</QueryOutputCachedSchemaDataTypesName>
+            <QueryOutputCachedSchemaStatus>OptionalElement</QueryOutputCachedSchemaStatus>
+            <Prepared_Param_DataType>
+                <parameter>
+                    <parameterName>no</parameterName>
+                    <dataType>INTEGER</dataType>
+                </parameter>
+            </Prepared_Param_DataType>
+        </config>
+        <pd:inputBindings>
+            <jdbcQueryActivityInput>
+                <no>
+                    <xsl:value-of select="$SOAPEventSource/inputMessage/ns5:EmpReq/ns5:emp/ns5:no"/>
+                </no>
+            </jdbcQueryActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>SOAPSendReply</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>SOAPEventSource</pd:from>
+        <pd:to>JDBC Query</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>JDBC Query</pd:from>
+        <pd:to>SOAPSendReply</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

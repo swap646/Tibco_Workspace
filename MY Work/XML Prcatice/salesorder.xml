@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Sales xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Sales_order/Schema.xsd">
+    <ns0:order>
+        <ns0:OrderNo>123</ns0:OrderNo>
+        <ns0:OrderName>swapna</ns0:OrderName>
+        <ns0:OrderAdd>nellore</ns0:OrderAdd>
+    </ns0:order>
+</ns0:Sales>

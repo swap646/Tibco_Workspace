@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:ns2="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/Schema.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pfx2="http://xmlns.example.com/1470856136599/Add_OperationImpl/Webservice" xmlns:pfx="http://xmlns.example.com/1470800690074/Add_OperationImpl/Webservice">
+    <wsdl:import namespace="http://xmlns.example.com/1470800690074/Add_OperationImpl/Webservice" location="/SharedResources/OLD/CONCRETE_WSDL/ADD_ConcreteWSDL/Add_Concrete_WSDL.wsdl"/>
+    <wsdl:import namespace="http://xmlns.example.com/1470856136599/Add_OperationImpl/Webservice" location="/SharedResources/WSDL/ADD_WSDL/ADDCONCRETE_WSDL/ADD_ConcreteWSDL.wsdl"/>
+    <pd:name>Webservice/Add_Client_Process.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1470801263418</pd:targetNamespace>
+    <pd:activity name="SOAPRequestReply">
+        <pd:type>com.tibco.plugin.soap.SOAPSendReceiveActivity</pd:type>
+        <pd:resourceType>ae.activities.SOAPSendReceiveUI</pd:resourceType>
+        <pd:x>277</pd:x>
+        <pd:y>58</pd:y>
+        <config>
+            <timeout>0</timeout>
+            <soapAttachmentStyle>SwA</soapAttachmentStyle>
+            <timeoutType>Seconds</timeoutType>
+            <service>pfx2:AddServer__Process</service>
+            <servicePort>SOAPEventSource</servicePort>
+            <operation>Add_Operation</operation>
+            <soapAction>/Webservice/AddServer_Process</soapAction>
+            <endpointURL>http://localhost:1234/Webservice/AddServer_Process</endpointURL>
+            <authScheme>NONE</authScheme>
+        </config>
+        <pd:inputBindings>
+            <inputMessage>
+                <ns2:AddReqDetails>
+                    <ns2:Add>
+                        <ns2:a>
+                            <xsl:value-of select="10"/>
+                        </ns2:a>
+                        <ns2:b>
+                            <xsl:value-of select="20"/>
+                        </ns2:b>
+                    </ns2:Add>
+                </ns2:AddReqDetails>
+            </inputMessage>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>SOAPRequestReply</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>SOAPRequestReply</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Purchase xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Purchase_order/Schema.xsd">
+    <ns0:orderdetail>
+        <ns0:No>123</ns0:No>
+        <ns0:Name>flipkart</ns0:Name>
+        <ns0:CustName>swapna</ns0:CustName>
+        <ns0:CustNo>9600136843</ns0:CustNo>
+    </ns0:orderdetail>
+</ns0:Purchase>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:ProductInfo xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Product_Info/Schema.xsd">
+    <ns0:detail>
+        <ns0:No>123</ns0:No>
+        <ns0:Name>Ram</ns0:Name>
+        <ns0:Manifacture>ITC</ns0:Manifacture>
+        <ns0:Marked>ISO</ns0:Marked>
+    </ns0:detail>
+</ns0:ProductInfo>

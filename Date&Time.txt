@@ -1,0 +1,169 @@
+DATE&TIME
+
+1.ADD TO DATE:
+tib:add-to-date('2016-07-30', 1, 1, 1)
+Returns:2017-08-31
+
+2.ADD To Time:
+A)tib:add-to-time('11:28:00', 1, 2, 3)
+Returns:12:30:03
+
+B)(Negative):
+tib:add-to-time('11:31:00', -1, -2, -3)
+Returns:10:28:57
+
+3.Compare Date
+A)If Date1&Date2 Differ:
+tib:compare-date('2016-07-30', '2016-08-30')
+returns-1
+B)If Date1&Date2 same:
+tib:compare-date('2016-07-30', '2016-07-30')
+returns0
+
+4.Compare Date Time
+A)If DateTime1&DateTime2 Differ:
+tib:compare-dateTime('2016-07-30T11:44:00', '2016-08-30T11:44:00')
+returns-1
+B)If DateTime1&DateTime2 Same:
+tib:compare-dateTime('2016-07-30T11:48:00', '2016-07-30T11:48:00')
+returns0
+
+5.Compare Time
+A)If Ist time greater than 2nd time.
+tib:compare-time('11:51:00', '10:51:00')
+returns 1
+B)If Ist time lesser than 2nd time
+tib:compare-time('11:59:00', '12:59:00')
+returns-1
+C)If Ist time Is equal to 2nd time
+tib:compare-dateTime('2016-07-30T11:48:00', '2016-07-30T11:48:00')
+returns 0
+
+6.Create Date Time
+tib:create-dateTime(2016, 07, 30, 12, 04,00)
+Returns:2016-07-30T12:04:00
+
+7.Create Date Time Timezone
+tib:create-dateTime-timezone(2016, 07, 30, 12, 10, 00, 3, 30)
+Returns:2016-07-30T12:10:00+03:30
+
+8.Create Date
+tib:create-date(2016, 07, 30)
+Returns:2016-07-30
+
+9.Create Time
+tib:create-time(12, 51, 00)
+Returns:12:51:00
+
+10.Current Date Time
+current-dateTime()
+2016-08-01T19:21:20.505+02:00
+
+11.Current-Date-Time-Timezone
+tib:create-dateTime-timezone(2016, 08, 01, 19, 25, 00, 03, 30)
+2016-08-01T19:25:00+03:30
+
+12.Current-date
+current-date()
+2016-08-01+02:00
+
+13.Format-Date-Time
+tib:format-dateTime('EEE MMM dd HH:mm:ss zzz yyyy', '2016-08-01T19:33:00-03:30')
+Mon Aug 01 19:33:00 GMT-03:30 2016
+
+14.Format-Date
+tib:format-date('EEE MMM dd  zzz yyyy', '2016-08-01-03:30')
+Mon Aug 01  GMT-03:30 2016
+
+15.Format-Time
+tib:format-time('HH mm ss', '19:41:00')
+19 41 00
+
+16.Get Centuary from date & time
+tib:get-century-from-dateTime('2016-08-01T19:33:00-03:30')
+20
+
+17.Get Centuary from date
+tib:get-century-from-date('2016-08-01')
+20
+18.Get year from date time
+tib:get-year-from-dateTime('2016-08-01T19:33:00-03:30')
+2016
+
+19.Get year from date
+tib:get-year-from-date('2016-08-01')
+2016
+
+20.Get month from date time
+tib:get-month-from-dateTime('2016-08-01T19:33:00-03:30')
+8
+
+21.Get month from date 
+tib:get-month-from-date('2016-08-01')
+8
+22.Get day from date time
+tib:get-day-from-dateTime('2016-08-01T19:33:00-03:30')
+Returns 1
+23.Get day from date 
+tib:get-day-from-date('2016-08-01')
+Returns 1
+
+24.Get hours from date time
+tib:get-hours-from-dateTime('2016-08-01T19:33:00-03:30')
+Returns 19
+25.Get hours from time
+tib:get-hours-from-time('19:33:00-03:30')
+Returns 19
+
+26.Get minutes from date time
+tib:get-minutes-from-dateTime('2016-08-01T19:33:00-03:30')
+Returns 33
+
+27.Get minutes from time
+tib:get-minutes-from-time('19:33:00-03:30')
+Returns 33
+
+28.Get seconds from date time
+tib:get-seconds-from-dateTime('2016-08-01T19:33:00-03:30')
+Returns 0
+
+29.Get seconds from time
+tib:get-seconds-from-time('19:33:00-03:30')
+Returns 0
+
+30.Get timezone from date time
+tib:get-timezone-from-dateTime('2016-08-01T19:33:00-03:30')
+Returns-03:30
+
+31.Get timezone from date
+
+
+32.Get timezone from  time
+
+
+
+33.Parsed Date Time
+tib:parse-dateTime('EEE MMM dd HH:mm:ss yyyy' , 'Mon Aug 01 20:50:00 2016' )
+2016-08-01T20:50:00+02:00
+
+34.Parsed Date 
+tib:parse-date('EEE MMM dd HH:mm:ss yyyy' , 'Mon Aug 01 20:50:00 2016')
+2016-08-01
+
+35.Parsed Time
+tib:parse-time('EEE MMM dd HH:mm:ss yyyy' , 'Mon Aug 01 20:50:00 2016')
+20:50:00
+
+36.Translate Time zone:
+tib:translate-timezone('2016-08-01T19:33:00Z' , '-03:30')
+2016-08-01T16:03:00-03:30
+
+37.Time Stamp:
+tib:timestamp()
+Returns :1470078370591
+
+38.Validate date time
+tib:validate-dateTime('EEE MMM dd HH:mm:ss yyyy' , 'Mon Aug 01 20:50:00 2016')
+Returns :True
+
+

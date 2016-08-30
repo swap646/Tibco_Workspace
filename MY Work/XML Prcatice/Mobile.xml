@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Mobile_Detail xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Mobile_detail/Schema.xsd">
+    <ns0:Detail>
+        <ns0:MobileNo>9600136843</ns0:MobileNo>
+        <ns0:Balenqno>121</ns0:Balenqno>
+        <ns0:AvlBal>30.25</ns0:AvlBal>
+        <ns0:Rchrgamt>100</ns0:Rchrgamt>
+    </ns0:Detail>
+</ns0:Mobile_Detail>

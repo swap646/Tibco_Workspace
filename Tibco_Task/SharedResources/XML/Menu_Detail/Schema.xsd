@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Order_Detail/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Order_Detail/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="OrderDetail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Order" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Orderno" type="xs:int"/>
+							<xs:element name="Item" type="xs:string"/>
+							<xs:element name="Quantity" type="xs:string"/>
+							<xs:element name="Price" type="xs:decimal"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

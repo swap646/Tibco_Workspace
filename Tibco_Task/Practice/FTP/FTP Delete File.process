@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/file" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>Practice/FTP/FTP Delete File.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence/>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>149</pd:startX>
+    <pd:startY>80</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>484</pd:endX>
+    <pd:endY>72</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1470168168189</pd:targetNamespace>
+    <pd:activity name="FTP Delete File">
+        <pd:type>com.tibco.plugin.ftp.FTPDeleteFileActivity</pd:type>
+        <pd:resourceType>ae.activities.FTPDeleteFileActivityUI</pd:resourceType>
+        <pd:x>332</pd:x>
+        <pd:y>75</pd:y>
+        <config>
+            <SharedUserData>/SharedResources/FTP Connection.sharedftp</SharedUserData>
+        </config>
+        <pd:inputBindings>
+            <Input>
+                <RemoteDirectory>
+                    <xsl:value-of select="''"/>
+                </RemoteDirectory>
+                <RemoteFileName>
+                    <xsl:value-of select="'goutam.txt'"/>
+                </RemoteFileName>
+            </Input>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>FTP Delete File</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>FTP Delete File</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

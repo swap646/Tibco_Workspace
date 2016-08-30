@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema2.xsd" xmlns:ns1="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema1.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1470856136599/Add_OperationImpl/Webservice" xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1470856136599/Add_OperationImpl/Webservice">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema.xsd">
+            <xs:element name="AddReqDetails">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Add">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="a" type="xs:int"/>
+                                    <xs:element name="b" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema2.xsd">
+            <xs:element name="FaultDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="FaultMsg" type="xs:string"/>
+                                    <xs:element name="FaultCode" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema1.xsd">
+            <xs:element name="AddResDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AddResponse">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Result" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="AddServer__Process">
+        <wsdl:port binding="tns:SOAPEventSourceBinding" name="SOAPEventSource">
+            <soap:address location="http://localhost:1234/Webservice/AddServer_Process"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="Add_Operation">
+            <wsdl:input message="tns:Request_Message"/>
+            <wsdl:output message="tns:Respons_Message"/>
+            <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SOAPEventSourceBinding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Add_Operation">
+            <soap:operation soapAction="/Webservice/AddServer_Process" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Output" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="Request_Message">
+        <wsdl:part element="ns0:AddReqDetails" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="Respons_Message">
+        <wsdl:part element="ns1:AddResDetail" name="Output"/>
+    </wsdl:message>
+    <wsdl:message name="Fault_Message">
+        <wsdl:part element="ns2:FaultDetail" name="Fault"/>
+    </wsdl:message>
+</wsdl:definitions>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema2.xsd" xmlns:ns1="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema1.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1470862284260/OperationImpl/Practice/WebServices/DIV__SOAPProcess" xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1470862284260/OperationImpl/Practice/WebServices/DIV__SOAPProcess">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema.xsd">
+            <xs:element name="DivsionDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Divison">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="a" type="xs:int"/>
+                                    <xs:element name="b" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema2.xsd">
+            <xs:element name="FaultDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="FaultMsg" type="xs:string"/>
+                                    <xs:element name="FaultCode" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema1.xsd">
+            <xs:element name="Responsedetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="result" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="DIV__ServerProcess">
+        <wsdl:port binding="tns:SOAPEventSourceBinding" name="SOAPEventSource">
+            <soap:address location="http://localhost:1234/Practice/WebServices/DIV_SOAPProcess/DIV_ServerProcess"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="Operation">
+            <wsdl:input message="tns:Request_Message"/>
+            <wsdl:output message="tns:Response_Message"/>
+            <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SOAPEventSourceBinding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Operation">
+            <soap:operation soapAction="/Practice/WebServices/DIV_SOAPProcess/DIV_ServerProcess" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Response" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="Request_Message">
+        <wsdl:part element="ns0:DivsionDetail" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="Response_Message">
+        <wsdl:part element="ns1:Responsedetail" name="Response"/>
+    </wsdl:message>
+    <wsdl:message name="Fault_Message">
+        <wsdl:part element="ns2:FaultDetail" name="Fault"/>
+    </wsdl:message>
+</wsdl:definitions>

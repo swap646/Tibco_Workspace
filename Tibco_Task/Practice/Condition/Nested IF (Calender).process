@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>Practice/Condition/Nested IF (Calender).process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="Calender-month" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <root>
+            <Month-returns>
+                <xsl:value-of select="if ($Start/root/Calender-month='1') then 'January' &#xA;else if ($Start/root/Calender-month='2') then 'Febuary' &#xA;else if ($Start/root/Calender-month='3') then 'March'&#xA;else if ($Start/root/Calender-month='4') then 'April'&#xA; else if ($Start/root/Calender-month='5') then 'May'&#xA;else if ($Start/root/Calender-month='6') then 'June'&#xA;else if ($Start/root/Calender-month='7') then  'July' &#xA;else if ($Start/root/Calender-month='8') then 'August'&#xA;else if ($Start/root/Calender-month='9') then 'September'&#xA;else if ($Start/root/Calender-month='10') then 'Octember'&#xA;else if ($Start/root/Calender-month='11') then 'November'&#xA; else 'December'"/>
+            </Month-returns>
+        </root>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="Month-returns" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:endType>
+    <pd:endX>454</pd:endX>
+    <pd:endY>66</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1468649041341</pd:targetNamespace>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Mobile_detail/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Mobile_detail/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Mobile_Detail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Detail" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MobileNo" type="xs:long"/>
+							<xs:element name="Balenqno" type="xs:int"/>
+							<xs:element name="AvlBal" type="xs:decimal"/>
+							<xs:element name="Rchrgamt" type="xs:int"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

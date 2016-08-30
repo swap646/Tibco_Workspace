@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns2="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/Schema.xsd2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns1="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema.xsd" xmlns:ns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/Schema.xsd" xmlns:ns4="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema1.xsd" xmlns:ns3="http://xmlns.tibco.com/encodings/mime" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pfx2="http://xmlns.example.com/1470856136599" xmlns:pfx="http://xmlns.example.com/1470800690074">
+    <wsdl:import namespace="http://xmlns.example.com/1470800690074" location="/SharedResources/OLD/ABSTRACT_WSDL/ADD_ABSTRACTWSDL/Add_AbstractWSDL.wsdl"/>
+    <wsdl:import namespace="http://xmlns.example.com/1470856136599" location="/SharedResources/WSDL/ADD_WSDL/ADDABSTRACT_WSDL/ADD_ABSTRACTWSDL.wsdl"/>
+    <pd:name>Webservice/AddServer_Process.process</pd:name>
+    <pd:startName>SOAPEventSource</pd:startName>
+    <pd:startX>0</pd:startX>
+    <pd:startY>0</pd:startY>
+    <pd:returnBindings/>
+    <pd:starter name="SOAPEventSource">
+        <pd:type>com.tibco.plugin.soap.SOAPEventSource</pd:type>
+        <pd:resourceType>ae.activities.SOAPEventSourceUI</pd:resourceType>
+        <pd:x>166</pd:x>
+        <pd:y>80</pd:y>
+        <config>
+            <service>pfx2:PortType</service>
+            <wsdlNamespaceRoot>http://xmlns.example.com/1470856136599/Add_OperationImpl</wsdlNamespaceRoot>
+            <operation>Add_Operation</operation>
+            <portAddressPrefix/>
+            <operationStyle>document</operationStyle>
+            <soapUse>literal</soapUse>
+            <embedWsdlComponents>true</embedWsdlComponents>
+            <embedSchemaComponents>true</embedSchemaComponents>
+            <soapAction>/Webservice/AddServer_Process</soapAction>
+            <sharedChannel>/SharedResources/HTTP Connection.sharedhttp</sharedChannel>
+            <soapAttachmentStyle>SwA</soapAttachmentStyle>
+        </config>
+        <pd:inputBindings/>
+    </pd:starter>
+    <pd:endName>End</pd:endName>
+    <pd:endX>743</pd:endX>
+    <pd:endY>77</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1470800979101</pd:targetNamespace>
+    <pd:activity name="Map Data">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>397</pd:x>
+        <pd:y>74</pd:y>
+        <config>
+            <element>
+                <xsd:element name="root">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Result" type="xsd:int"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </element>
+        </config>
+        <pd:inputBindings>
+            <root>
+                <Result>
+                    <xsl:value-of select="$SOAPEventSource/inputMessage/ns1:AddReqDetails/ns1:Add/ns1:a + $SOAPEventSource/inputMessage/ns1:AddReqDetails/ns1:Add/ns1:b"/>
+                </Result>
+            </root>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="SOAPSendReply">
+        <pd:type>com.tibco.plugin.soap.SOAPSendReplyActivity</pd:type>
+        <pd:resourceType>ae.activities.SOAPSendReplyUI</pd:resourceType>
+        <pd:x>599</pd:x>
+        <pd:y>87</pd:y>
+        <config>
+            <eventSource>SOAPEventSource</eventSource>
+        </config>
+        <pd:inputBindings>
+            <outputMessage>
+                <ns4:AddResDetail>
+                    <ns4:AddResponse>
+                        <ns4:Result>
+                            <xsl:value-of select="$Map-Data/root/Result"/>
+                        </ns4:Result>
+                    </ns4:AddResponse>
+                </ns4:AddResDetail>
+            </outputMessage>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Map Data</pd:from>
+        <pd:to>SOAPSendReply</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>SOAPSendReply</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>SOAPEventSource</pd:from>
+        <pd:to>Map Data</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

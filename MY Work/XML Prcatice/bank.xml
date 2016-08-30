@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:BankDetail xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Folder/Schema.xsd">
+    <ns0:Customer>
+        <ns0:AccNo>12345678911</ns0:AccNo>
+        <ns0:AccName>swapna</ns0:AccName>
+        <ns0:Bank>ICICI</ns0:Bank>
+        <ns0:Branch>adyar</ns0:Branch>
+    </ns0:Customer>
+</ns0:BankDetail>

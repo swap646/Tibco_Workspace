@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2536c86e-afc3-44de-9ba4-54b90266aa35" activeEnvironment="Default" name="PATIENT" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="2d4d35bb-477f-4da1-be84-2a6dfe250f61" wsaVersion="NONE" name="PortTypeEndpoint1Binding" type="wsdl" bindingName="{http://xmlns.example.com/1471190813459}PortTypeEndpoint1Binding" soapVersion="1_1" anonymous="optional" definition="file:/D:/SWAPNA/PATIENT/SharedResources/PatientConcrete_WSDL.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\SWAPNA\PATIENT\SharedResources\PatientConcrete_WSDL.wsdl"><con:part><con:url>file:\D:\SWAPNA\PATIENT\SharedResources\PatientConcrete_WSDL.wsdl</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="Untitled" targetNamespace="http://xmlns.example.com/1471190813459" xmlns:ns2="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema4.xsd" xmlns:ns1="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema1.xsd" xmlns:ns4="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema3.xsd" xmlns:ns3="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1471190813459" xmlns:ns0="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema4.xsd" xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="FaultDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Fault">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="FaultMsg" type="xs:string"/>
+                  <xs:element name="FaultCode" type="xs:int"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd" xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Req_PatientRmchange">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Patient">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PatientNo" type="xs:int"/>
+                  <xs:element name="RoomNochanged" type="xs:int"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd" xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="PatientDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Patient">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PatientNo" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema1.xsd" xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ResPatientDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Patient">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="patientname" type="xs:string"/>
+                  <xs:element name="doctorname" type="xs:string"/>
+                  <xs:element name="patientroomno" type="xs:int"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema3.xsd" xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ResPatientroomNo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Patient">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PatientName" type="xs:string"/>
+                  <xs:element name="ChangedPatientRmNo" type="xs:int"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:service name="Patient_Service">
+    <wsdl:port binding="tns:PortTypeEndpoint1Binding" name="PortTypeEndpoint1">
+      <soap:address location="http://localhost:1234/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="PortType">
+    <wsdl:operation name="PatientDetail_Operation">
+      <wsdl:input message="tns:ReqPatientDetail_Message"/>
+      <wsdl:output message="tns:ResPatientDetail_Message"/>
+      <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+    </wsdl:operation>
+    <wsdl:operation name="PatientRoomNo_Operation">
+      <wsdl:input message="tns:ReqRoomno_Message"/>
+      <wsdl:output message="tns:ResRoomno_Message"/>
+      <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PortTypeEndpoint1Binding" type="tns:PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="PatientDetail_Operation">
+      <soap:operation soapAction="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientDetail_Operation" style="document"/>
+      <wsdl:input>
+        <soap:body parts="Input" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="Output" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault name="fault1" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PatientRoomNo_Operation">
+      <soap:operation soapAction="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientRoomNo_Operation" style="document"/>
+      <wsdl:input>
+        <soap:body parts="Input" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="output" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault name="fault1" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="ReqPatientDetail_Message">
+    <wsdl:part element="ns0:PatientDetail" name="Input"/>
+  </wsdl:message>
+  <wsdl:message name="ResPatientDetail_Message">
+    <wsdl:part element="ns1:ResPatientDetail" name="Output"/>
+  </wsdl:message>
+  <wsdl:message name="Fault_Message">
+    <wsdl:part element="ns2:FaultDetails" name="Fault"/>
+  </wsdl:message>
+  <wsdl:message name="ReqRoomno_Message">
+    <wsdl:part element="ns3:Req_PatientRmchange" name="Input"/>
+  </wsdl:message>
+  <wsdl:message name="ResRoomno_Message">
+    <wsdl:part element="ns4:ResPatientroomNo" name="output"/>
+  </wsdl:message>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:1234/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1</con:endpoint></con:endpoints><con:operation id="56f3eafd-0a7a-43b4-b50c-4a5f55c99c2d" isOneWay="false" action="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientDetail_Operation" name="PatientDetail_Operation" bindingOperationName="PatientDetail_Operation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="af3d1da6-c8b2-451a-8aeb-d25fbb812ffa" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1234/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:PatientDetail>\r
+         <sch:Patient>\r
+            <sch:PatientNo>123</sch:PatientNo>\r
+         </sch:Patient>\r
+      </sch:PatientDetail>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientDetail_Operation"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="96709677-4e11-4c07-80e8-c3b155b90a8d" isOneWay="false" action="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientRoomNo_Operation" name="PatientRoomNo_Operation" bindingOperationName="PatientRoomNo_Operation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="daf582ec-2a72-4c4b-aa2a-40263298932b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1234/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:Req_PatientRmchange>\r
+         <sch:Patient>\r
+            <sch:PatientNo>590</sch:PatientNo>\r
+            <sch:RoomNochanged>20</sch:RoomNochanged>\r
+         </sch:Patient>\r
+      </sch:Req_PatientRmchange>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientRoomNo_Operation"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="7d365295-2564-4ef5-9ca5-d7ff6ebd104e" name="PortTypeEndpoint1Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="f51bdca1-a13f-4f93-993a-1b0a1201883f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PatientDetail_Operation TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="638acbce-3af6-4830-b0c9-f3c9f606dbf9" name="PatientDetail_Operation"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PortTypeEndpoint1Binding</con:interface><con:operation>PatientDetail_Operation</con:operation><con:request name="PatientDetail_Operation" id="1f74e82f-e323-4123-b3fc-2f7ea7c4a0d8"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1234/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:PatientDetail>\r
+         <sch:Patient>\r
+            <sch:PatientNo>?</sch:PatientNo>\r
+         </sch:Patient>\r
+      </sch:PatientDetail>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientDetail_Operation"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="90e6635d-f667-4025-957e-6cd04604e3f2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="PatientRoomNo_Operation TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="ad399778-144d-4743-939d-3f29fefe1d38" name="PatientRoomNo_Operation"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PortTypeEndpoint1Binding</con:interface><con:operation>PatientRoomNo_Operation</con:operation><con:request name="PatientRoomNo_Operation" id="2b59050a-293c-4034-bdff-0ce149513bba"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1234/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:Req_PatientRmchange>\r
+         <sch:Patient>\r
+            <sch:PatientNo>?</sch:PatientNo>\r
+            <sch:RoomNochanged>?</sch:RoomNochanged>\r
+         </sch:Patient>\r
+      </sch:Req_PatientRmchange>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientRoomNo_Operation"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

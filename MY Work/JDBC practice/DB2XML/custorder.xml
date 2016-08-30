@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Cust_OrderDetail xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Cust_Order_Detail/Schema.xsd">
+    <ns0:Order>
+        <ns0:Cust_OrderNo>55</ns0:Cust_OrderNo>
+        <ns0:Cust_Name>swapna</ns0:Cust_Name>
+        <ns0:Cust_Address>10-4-38 kailasnagar vishakhapatnam</ns0:Cust_Address>
+    </ns0:Order>
+    <ns0:Order>
+        <ns0:Cust_OrderNo>123</ns0:Cust_OrderNo>
+        <ns0:Cust_Name>nimmana</ns0:Cust_Name>
+        <ns0:Cust_Address>berhampur odisa</ns0:Cust_Address>
+    </ns0:Order>
+    <ns0:Order>
+        <ns0:Cust_OrderNo>55</ns0:Cust_OrderNo>
+        <ns0:Cust_Name>swapna</ns0:Cust_Name>
+        <ns0:Cust_Address>10-4-38 kailasnagar vishakhapatnam</ns0:Cust_Address>
+    </ns0:Order>
+</ns0:Cust_OrderDetail>

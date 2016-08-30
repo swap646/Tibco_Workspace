@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:ns2="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/Schema.xsd" xmlns:ns3="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:pfx3="http://xmlns.example.com/1470972527628/EMP_OperationImpl/Webservice/Emp" xmlns:pfx2="http://xmlns.example.com/1470856136599/Add_OperationImpl/Webservice" xmlns:pfx="http://xmlns.example.com/1470800690074/Add_OperationImpl/Webservice">
+    <wsdl:import namespace="http://xmlns.example.com/1470800690074/Add_OperationImpl/Webservice" location="/SharedResources/OLD/CONCRETE_WSDL/ADD_ConcreteWSDL/Add_Concrete_WSDL.wsdl"/>
+    <wsdl:import namespace="http://xmlns.example.com/1470856136599/Add_OperationImpl/Webservice" location="/SharedResources/WSDL/ADD_WSDL/ADDCONCRETE_WSDL/ADD_ConcreteWSDL.wsdl"/>
+    <wsdl:import namespace="http://xmlns.example.com/1470972527628/EMP_OperationImpl/Webservice/Emp" location="/SharedResources/EMP_ConcreteWSDL.wsdl"/>
+    <pd:name>Webservice/Emp/Emp_Client_Process.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1470801263418</pd:targetNamespace>
+    <pd:activity name="SOAPRequestReply">
+        <pd:type>com.tibco.plugin.soap.SOAPSendReceiveActivity</pd:type>
+        <pd:resourceType>ae.activities.SOAPSendReceiveUI</pd:resourceType>
+        <pd:x>277</pd:x>
+        <pd:y>58</pd:y>
+        <config>
+            <timeout>0</timeout>
+            <soapAttachmentStyle>SwA</soapAttachmentStyle>
+            <timeoutType>Seconds</timeoutType>
+            <service>pfx3:EmpServer__Process</service>
+            <servicePort>SOAPEventSource</servicePort>
+            <operation>EMP_Operation</operation>
+            <soapAction>/Webservice/AddServer_Process</soapAction>
+            <endpointURL>http://localhost:1234/Webservice/Emp/EmpServer_Process</endpointURL>
+            <authScheme>NONE</authScheme>
+            <useProxy>false</useProxy>
+            <requireBasicAuth>false</requireBasicAuth>
+            <basicHttpAuthIdentity/>
+        </config>
+        <pd:inputBindings>
+            <inputMessage>
+                <ns3:EmpReq>
+                    <ns3:emp>
+                        <ns3:no>
+                            <xsl:value-of select="101"/>
+                        </ns3:no>
+                    </ns3:emp>
+                </ns3:EmpReq>
+            </inputMessage>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>SOAPRequestReply</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>SOAPRequestReply</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

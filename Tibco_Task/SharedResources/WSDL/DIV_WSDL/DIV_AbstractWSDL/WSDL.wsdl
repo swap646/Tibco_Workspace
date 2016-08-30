@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:ns2="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema1.xsd" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema.xsd" xmlns:ns3="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema2.xsd" xmlns:tns="http://xmlns.example.com/1470862284260" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.example.com/1470862284260">
+    <import namespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema.xsd" location="../_Schemas/Request_Schema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema1.xsd" location="../_Schemas/Response_schema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/DIV_WSDL/DIV_Schemas/Schema2.xsd" location="../_Schemas/Fault_schema.xsd"/>
+    <message name="Request_Message">
+        <part name="Input" element="ns:DivsionDetail"/>
+    </message>
+    <message name="Response_Message">
+        <part name="Response" element="ns2:Responsedetail"/>
+    </message>
+    <message name="Fault_Message">
+        <part name="Fault" element="ns3:FaultDetail"/>
+    </message>
+    <portType name="PortType">
+        <operation name="Operation">
+            <input message="tns:Request_Message"/>
+            <output message="tns:Response_Message"/>
+            <fault name="fault1" message="tns:Fault_Message"/>
+        </operation>
+    </portType>
+</definitions>

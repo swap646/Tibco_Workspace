@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:OrderDetail xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Order_Detail/Schema.xsd">
+    <ns0:Order>
+        <ns0:Orderno>1234</ns0:Orderno>
+        <ns0:Item>Biryani</ns0:Item>
+        <ns0:Quantity>1kg</ns0:Quantity>
+        <ns0:Price>1000</ns0:Price>
+    </ns0:Order>
+    <ns0:Order>
+        <ns0:Orderno>124</ns0:Orderno>
+        <ns0:Item>pulav</ns0:Item>
+        <ns0:Quantity>5kg</ns0:Quantity>
+        <ns0:Price>1000</ns0:Price>
+    </ns0:Order>
+    <ns0:Order>
+        <ns0:Orderno>1234</ns0:Orderno>
+        <ns0:Item>Biryani</ns0:Item>
+        <ns0:Quantity>1kg</ns0:Quantity>
+        <ns0:Price>1000</ns0:Price>
+    </ns0:Order>
+</ns0:OrderDetail>

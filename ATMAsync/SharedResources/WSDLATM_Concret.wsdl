@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd5" xmlns:ns1="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd2" xmlns:ns4="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd4" xmlns:ns3="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1470975474689" xmlns:ns0="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1470975474689">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd2" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd2">
+            <xs:element name="Bal_res">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="bal">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="amount" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd3" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd3">
+            <xs:element name="withdrawal_Req">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="withdrawl">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="accno" type="xs:int"/>
+                                    <xs:element name="amount" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd">
+            <xs:element name="AccRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Acct">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Acctno" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd4" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd4">
+            <xs:element name="withdra_res">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="withdral">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="actualamt" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd5" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd5">
+            <xs:element name="Fault_detail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="faultcode" type="xs:int"/>
+                                    <xs:element name="faultmsg" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ATM_Service">
+        <wsdl:port binding="tns:PortTypeEndpoint1Binding" name="PortTypeEndpoint1">
+            <soap:address location="http://localhost:1234/SharedResources/ATM_Service.serviceagent/PortTypeEndpoint1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="Bal_Operation">
+            <wsdl:input message="tns:BalreqMessage"/>
+            <wsdl:output message="tns:BalresMessage"/>
+            <wsdl:fault message="tns:FaultMessage" name="fault1"/>
+        </wsdl:operation>
+        <wsdl:operation name="withdrawl_Operation">
+            <wsdl:input message="tns:withdralreqMessage"/>
+            <wsdl:output message="tns:withresMessage"/>
+            <wsdl:fault message="tns:FaultMessage" name="fault1"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PortTypeEndpoint1Binding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Bal_Operation">
+            <soap:operation soapAction="/SharedResources/ATM_Service.serviceagent/PortTypeEndpoint1/Bal_Operation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="output" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="withdrawl_Operation">
+            <soap:operation soapAction="/SharedResources/ATM_Service.serviceagent/PortTypeEndpoint1/withdrawl_Operation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="output" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="BalreqMessage">
+        <wsdl:part element="ns0:AccRequest" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="BalresMessage">
+        <wsdl:part element="ns1:Bal_res" name="output"/>
+    </wsdl:message>
+    <wsdl:message name="FaultMessage">
+        <wsdl:part element="ns2:Fault_detail" name="Fault"/>
+    </wsdl:message>
+    <wsdl:message name="withdralreqMessage">
+        <wsdl:part element="ns3:withdrawal_Req" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="withresMessage">
+        <wsdl:part element="ns4:withdra_res" name="output"/>
+    </wsdl:message>
+</wsdl:definitions>

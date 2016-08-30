@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:PatientDetail xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/PatientDetail/Schema.xsd">
+    <ns0:Patient>
+        <ns0:patientname>siva</ns0:patientname>
+        <ns0:patientno>590</ns0:patientno>
+        <ns0:doctorname>anand</ns0:doctorname>
+        <ns0:patientroomno>5</ns0:patientroomno>
+    </ns0:Patient>
+</ns0:PatientDetail>

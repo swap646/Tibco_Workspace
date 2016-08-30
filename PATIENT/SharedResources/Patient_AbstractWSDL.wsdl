@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:ns2="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema1.xsd" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns4="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema3.xsd" xmlns:ns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd" xmlns:ns3="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd" xmlns:tns="http://xmlns.example.com/1471186467249" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns5="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema4.xsd" targetNamespace="http://xmlns.example.com/1471186467249">
+    <import namespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd" location="PatientDetailReq_Schema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema1.xsd" location="PatientDetailRes_Schema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd" location="PatientRoomnoReq_Schema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema3.xsd" location="PatientRoomnoRes_Schema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema4.xsd" location="Fault_Schema.xsd"/>
+    <message name="ReqPatientDetail_Message">
+        <part name="Input" element="ns:PatientDetail"/>
+    </message>
+    <message name="ResPatientDetail_Message">
+        <part name="Output" element="ns2:ResPatientDetail"/>
+    </message>
+    <message name="ReqRoomno_Message">
+        <part name="Input" element="ns3:Req_PatientRmchange"/>
+    </message>
+    <message name="ResRoomno_Message">
+        <part name="output" element="ns4:ResPatientroomNo"/>
+    </message>
+    <message name="Fault_Message">
+        <part name="Fault" element="ns5:FaultDetails"/>
+    </message>
+    <portType name="PortType">
+        <operation name="PatientDetail_Operation">
+            <input message="tns:ReqPatientDetail_Message"/>
+            <output message="tns:ResPatientDetail_Message"/>
+            <fault name="fault1" message="tns:Fault_Message"/>
+        </operation>
+        <operation name="PatientRoomNo_Operation">
+            <input message="tns:ReqRoomno_Message"/>
+            <output message="tns:ResRoomno_Message"/>
+            <fault name="fault1" message="tns:Fault_Message"/>
+        </operation>
+    </portType>
+</definitions>

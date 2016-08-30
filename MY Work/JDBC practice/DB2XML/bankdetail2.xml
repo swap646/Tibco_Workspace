@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Bank xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Bank_Detail/Schema.xsd">
+    <ns0:Bankdetail>
+        <ns0:BankName>ICICI</ns0:BankName>
+        <ns0:BankNo>12345</ns0:BankNo>
+        <ns0:BankAdd>Adyar Chennai</ns0:BankAdd>
+    </ns0:Bankdetail>
+    <ns0:Bankdetail>
+        <ns0:BankName>ICICI</ns0:BankName>
+        <ns0:BankNo>4567</ns0:BankNo>
+        <ns0:BankAdd>gajuwakavizag</ns0:BankAdd>
+    </ns0:Bankdetail>
+    <ns0:Bankdetail>
+        <ns0:BankName>ICICI</ns0:BankName>
+        <ns0:BankNo>12345</ns0:BankNo>
+        <ns0:BankAdd>Adyar Chennai</ns0:BankAdd>
+    </ns0:Bankdetail>
+</ns0:Bank>

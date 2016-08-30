@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource>
+    <config>
+        <workerWeight>9</workerWeight>
+        <workerTasks>9</workerTasks>
+        <workerCompleteTime>0</workerCompleteTime>
+        <schedulerWeight>9</schedulerWeight>
+        <scheduleHeartbeat>1.0</scheduleHeartbeat>
+        <scheduleActivation>3.5</scheduleActivation>
+        <showExpertSettings>certifiedQ</showExpertSettings>
+        <cmqName>DQ2</cmqName>
+    </config>
+</BWSharedResource>

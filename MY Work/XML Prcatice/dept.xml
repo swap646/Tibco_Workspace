@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Dept_Detail xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/DeptDetail/Schema.xsd">
+    <ns0:Dept>
+        <ns0:deptno>101</ns0:deptno>
+        <ns0:deptname>IT</ns0:deptname>
+        <ns0:deptdiv>Software</ns0:deptdiv>
+    </ns0:Dept>
+</ns0:Dept_Detail>

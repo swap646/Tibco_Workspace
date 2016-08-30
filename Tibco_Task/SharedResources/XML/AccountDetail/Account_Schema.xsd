@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/AccountDetail/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/AccountDetail/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Account">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Act" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="accno" type="xs:int"/>
+							<xs:element name="accname" type="xs:string"/>
+							<xs:element name="branch" type="xs:string"/>
+							<xs:element name="amount" type="xs:decimal"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd2"
+	 targetNamespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd2"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Bal_res">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="bal">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="amount" type="xs:int"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

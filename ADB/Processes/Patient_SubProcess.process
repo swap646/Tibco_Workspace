@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <pd:name>Processes/Patient_SubProcess.process</pd:name>
+    <pd:startName>Adapter Subscriber</pd:startName>
+    <pd:startX>0</pd:startX>
+    <pd:startY>0</pd:startY>
+    <pd:returnBindings/>
+    <pd:starter name="Adapter Subscriber">
+        <pd:type>com.tibco.plugin.ae.AESubscriberActivity</pd:type>
+        <pd:resourceType>ae.aepalette.aeSubscription</pd:resourceType>
+        <pd:x>257</pd:x>
+        <pd:y>89</pd:y>
+        <config>
+            <ae.aepalette.sharedProperties.transportChoice>jmsTopic</ae.aepalette.sharedProperties.transportChoice>
+            <ae.aepalette.sharedProperties.useRequestReply>false</ae.aepalette.sharedProperties.useRequestReply>
+            <ae.aepalette.sharedProperties.adapterService>/SharedResoreces/ActiveDatabaseAdapterConfiguration.adb#adapterService.PatientADBPublisher</ae.aepalette.sharedProperties.adapterService>
+            <tpPluginEndpointName>ADBPublisher</tpPluginEndpointName>
+            <ae.aepalette.sharedProperties.transportType>jmsTopic</ae.aepalette.sharedProperties.transportType>
+            <ae.aepalette.sharedProperties.jmsTopicSessionTopic>patient.topic</ae.aepalette.sharedProperties.jmsTopicSessionTopic>
+            <ae.aepalette.sharedProperties.jmsTopicSessionConnectionFactory>TopicConnectionFactory</ae.aepalette.sharedProperties.jmsTopicSessionConnectionFactory>
+            <ae.aepalette.sharedProperties.jmsSessionUsername/>
+            <ae.aepalette.sharedProperties.jmsSessionProviderURL>%%JmsProviderUrl%%</ae.aepalette.sharedProperties.jmsSessionProviderURL>
+            <ae.aepalette.sharedProperties.outputMeta>
+                <aeMeta>/AESchemas/ae/ADB/ActiveDatabaseAdapterConfiguration.aeschema#class.P_PATIENT</aeMeta>
+            </ae.aepalette.sharedProperties.outputMeta>
+            <ae.aepalette.sharedProperties.autoGenClientID>true</ae.aepalette.sharedProperties.autoGenClientID>
+            <ae.aepalette.sharedProperties.isAutoConfirm>true</ae.aepalette.sharedProperties.isAutoConfirm>
+        </config>
+        <pd:inputBindings/>
+    </pd:starter>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1472495725475</pd:targetNamespace>
+    <pd:transition>
+        <pd:from>Adapter Subscriber</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

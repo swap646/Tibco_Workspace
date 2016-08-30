@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="baa239d3-faf1-4f3b-86dd-05dfc8e0655d" activeEnvironment="Default" name="MOBILE" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="7648b56b-7678-43b7-91f2-a23d3cd336f8" wsaVersion="NONE" name="PortTypeEndpoint1Binding" type="wsdl" bindingName="{http://xmlns.example.com/1471185045101}PortTypeEndpoint1Binding" soapVersion="1_1" anonymous="optional" definition="file:/D:/SWAPNA/MOBILE/SharedResources/Mobile_ConcreteWSDL.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\SWAPNA\MOBILE\SharedResources\Mobile_ConcreteWSDL.wsdl"><con:part><con:url>file:\D:\SWAPNA\MOBILE\SharedResources\Mobile_ConcreteWSDL.wsdl</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="Untitled" targetNamespace="http://xmlns.example.com/1471185045101" xmlns:ns2="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema4.xsd" xmlns:ns1="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema3.xsd" xmlns:ns4="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema1.xsd" xmlns:ns3="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1471185045101" xmlns:ns0="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema3.xsd" xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Res_RchrgAfterAvailBalDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AfterRechargeBal">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Final_Bal" type="xs:decimal"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd" xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Req_AvailBalDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AvailBal">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="MobileNo" type="xs:int"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd" xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Req_AfterAvailBalDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AfterAvailBalDetail">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="mobileno" type="xs:int"/>
+                  <xs:element name="rechargeamt" type="xs:decimal"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema4.xsd" xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="FaultDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Fault">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="FaultMsg" type="xs:string"/>
+                  <xs:element name="FaultCode" type="xs:int"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema1.xsd" xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Res_AvailBalDetail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AvailBal">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Amount" type="xs:decimal"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:service name="Mobile_service">
+    <wsdl:port binding="tns:PortTypeEndpoint1Binding" name="PortTypeEndpoint1">
+      <soap:address location="http://localhost:1234/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="PortType">
+    <wsdl:operation name="FinalBalAfterRchrg_Operation">
+      <wsdl:input message="tns:Req_FinalBalMessage"/>
+      <wsdl:output message="tns:Res_FinalBalMessage"/>
+      <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+    </wsdl:operation>
+    <wsdl:operation name="AvlBal_Operation">
+      <wsdl:input message="tns:Req_AvlBalMessage"/>
+      <wsdl:output message="tns:Res_AvlBalMessage"/>
+      <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PortTypeEndpoint1Binding" type="tns:PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="FinalBalAfterRchrg_Operation">
+      <soap:operation soapAction="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/FinalBalAfterRchrg_Operation" style="document"/>
+      <wsdl:input>
+        <soap:body parts="Input" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="output" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault name="fault1" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AvlBal_Operation">
+      <soap:operation soapAction="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/AvlBal_Operation" style="document"/>
+      <wsdl:input>
+        <soap:body parts="Input" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="Output" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault name="fault1" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="Req_FinalBalMessage">
+    <wsdl:part element="ns0:Req_AfterAvailBalDetail" name="Input"/>
+  </wsdl:message>
+  <wsdl:message name="Res_FinalBalMessage">
+    <wsdl:part element="ns1:Res_RchrgAfterAvailBalDetail" name="output"/>
+  </wsdl:message>
+  <wsdl:message name="Fault_Message">
+    <wsdl:part element="ns2:FaultDetail" name="Fault"/>
+  </wsdl:message>
+  <wsdl:message name="Req_AvlBalMessage">
+    <wsdl:part element="ns3:Req_AvailBalDetail" name="Input"/>
+  </wsdl:message>
+  <wsdl:message name="Res_AvlBalMessage">
+    <wsdl:part element="ns4:Res_AvailBalDetail" name="Output"/>
+  </wsdl:message>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:1234/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1</con:endpoint></con:endpoints><con:operation id="49d83288-b4fb-49cb-b3c8-238a9b41b916" isOneWay="false" action="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/AvlBal_Operation" name="AvlBal_Operation" bindingOperationName="AvlBal_Operation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b66454dd-4717-480d-a3f6-f187f7c130ec" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1234/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:Req_AvailBalDetail>\r
+         <sch:AvailBal>\r
+            <sch:MobileNo>8056244</sch:MobileNo>\r
+         </sch:AvailBal>\r
+      </sch:Req_AvailBalDetail>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/AvlBal_Operation"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="23c0fa10-6aae-454f-ae80-4181a138ed07" isOneWay="false" action="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/FinalBalAfterRchrg_Operation" name="FinalBalAfterRchrg_Operation" bindingOperationName="FinalBalAfterRchrg_Operation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="709970ef-e44d-4b3e-8347-ce9e45cbc4a9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1234/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:Req_AfterAvailBalDetail>\r
+         <sch:AfterAvailBalDetail>\r
+            <sch:mobileno>8056244</sch:mobileno>\r
+            <sch:rechargeamt>100</sch:rechargeamt>\r
+         </sch:AfterAvailBalDetail>\r
+      </sch:Req_AfterAvailBalDetail>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/FinalBalAfterRchrg_Operation"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="03b5bb8d-609f-4b44-b804-7afb49294332" name="PortTypeEndpoint1Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="c2353016-11e2-4128-ac1a-eb3826a3d499" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AvlBal_Operation TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="80ad7243-cfb4-4073-b975-5223003cad27" name="AvlBal_Operation"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PortTypeEndpoint1Binding</con:interface><con:operation>AvlBal_Operation</con:operation><con:request name="AvlBal_Operation" id="93ea8b1f-e56c-47ab-b645-1571357bacee"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1234/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:Req_AvailBalDetail>\r
+         <sch:AvailBal>\r
+            <sch:MobileNo>?</sch:MobileNo>\r
+         </sch:AvailBal>\r
+      </sch:Req_AvailBalDetail>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/AvlBal_Operation"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="1b4642c0-2eb9-4cfa-a56a-864397878498" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FinalBalAfterRchrg_Operation TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="840b1df1-d942-45b6-bb7a-5cbdaa2ce359" name="FinalBalAfterRchrg_Operation"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PortTypeEndpoint1Binding</con:interface><con:operation>FinalBalAfterRchrg_Operation</con:operation><con:request name="FinalBalAfterRchrg_Operation" id="eb99de9e-4cdd-45cc-a0f1-f6e1bfbce614"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1234/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:Req_AfterAvailBalDetail>\r
+         <sch:AfterAvailBalDetail>\r
+            <sch:mobileno>?</sch:mobileno>\r
+            <sch:rechargeamt>?</sch:rechargeamt>\r
+         </sch:AfterAvailBalDetail>\r
+      </sch:Req_AfterAvailBalDetail>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/FinalBalAfterRchrg_Operation"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

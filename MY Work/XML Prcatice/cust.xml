@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Cust_detail xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/Cust_Detail/Schema.xsd">
+    <ns0:personal>
+        <ns0:CustName>Swapna</ns0:CustName>
+        <ns0:CustNo>9600136843</ns0:CustNo>
+        <ns0:CustAdd>10-4-38 oldgajuwaka kailasnagar vizag</ns0:CustAdd>
+    </ns0:personal>
+</ns0:Cust_detail>

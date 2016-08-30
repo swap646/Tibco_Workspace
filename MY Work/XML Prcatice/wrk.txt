@@ -1,0 +1,45 @@
+deptno,deptname,deptdiv
+accno,accname,branch,amount
+patientname,patientno,doctorname,patientroomno
+mobno,amount
+mobno,balance
+Orderno,item,quantity,price
+Dept:no,name,divison FF-2-XMl----->XML--2FF
+Patient:pname,pbirth,doctorname,--,,,,,,,,,,
+
+
+Orderno,name,customeradd-,,,,,,,,,,,,Cust_OrderNo,Cust_Name,Cust_Address
+Account:accno,name,bank,branch---,,,,,,,,,,AccNo,AccName,Bank,Branch;'D:\SWAPNA\MY Work\XML Prcatice\bank.txt'
+Customer:name,no,add,------.,,,,,,,,,,,CustName,CustNo,CustAdd;'D:\SWAPNA\MY Work\XML Prcatice\cust.txt'
+Bank:no,name,add,,----,,,,,,,,,,,,,,,,,,,,,,,BankName,BankNo,BankAdd 'D:\SWAPNA\MY Work\XML Prcatice\bankdetail.txt'
+PurchaseOrder:no,name,custordetails=--,,,,,,,,No,Name,CustName,CustNo'D:\SWAPNA\MY Work\XML Prcatice\Purchaseorder.txt'
+SalesOrder:orderno,name,-----,,,,,,,,,,,,,,,,,,OrderNo,OrderName,OrderAdd'D:\SWAPNA\MY Work\XML Prcatice\salesorder.txt'
+PrdoctInfo:no,name,manifactured--,,,,,,,,,,,,,,No,Name,Manifacture,Marked'D:\SWAPNA\MY Work\XML Prcatice\Productinfo.txt'
+ATM:no,name,Branchname,--,,,,,,,,,,,,,,,,,,,CardNo,ValidDate,ExpDate,Name,CVV,Pin'D:\SWAPNA\MY Work\XML Prcatice\ATMDetail.txt'
+
+D:\SWAPNA\MY Work\XML Prcatice\XML2FFffile
+
+
+
+sid : orcl
+username : admin
+password : admin
+
+
+
+http://www.oracle-dba-online.com/sql/oracle_sql_tutorial.htm
+
+
+
+
+sqlplus
+
+
+swapna/pswpsw123
+
+
+localhost, 1521 , orcl 
+
+acct
+
+

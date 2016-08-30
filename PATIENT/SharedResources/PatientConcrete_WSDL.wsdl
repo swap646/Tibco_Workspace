@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema4.xsd" xmlns:ns1="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema1.xsd" xmlns:ns4="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema3.xsd" xmlns:ns3="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1471190813459" xmlns:ns0="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1471190813459">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema4.xsd">
+            <xs:element name="FaultDetails">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="FaultMsg" type="xs:string"/>
+                                    <xs:element name="FaultCode" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema2.xsd">
+            <xs:element name="Req_PatientRmchange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Patient">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="PatientNo" type="xs:int"/>
+                                    <xs:element name="RoomNochanged" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema.xsd">
+            <xs:element name="PatientDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Patient">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="PatientNo" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema1.xsd">
+            <xs:element name="ResPatientDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Patient">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="patientname" type="xs:string"/>
+                                    <xs:element name="doctorname" type="xs:string"/>
+                                    <xs:element name="patientroomno" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/PATIENT/SharedResources/Schema3.xsd">
+            <xs:element name="ResPatientroomNo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Patient">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="PatientName" type="xs:string"/>
+                                    <xs:element name="ChangedPatientRmNo" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="Patient_Service">
+        <wsdl:port binding="tns:PortTypeEndpoint1Binding" name="PortTypeEndpoint1">
+            <soap:address location="http://localhost:1234/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="PatientDetail_Operation">
+            <wsdl:input message="tns:ReqPatientDetail_Message"/>
+            <wsdl:output message="tns:ResPatientDetail_Message"/>
+            <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+        </wsdl:operation>
+        <wsdl:operation name="PatientRoomNo_Operation">
+            <wsdl:input message="tns:ReqRoomno_Message"/>
+            <wsdl:output message="tns:ResRoomno_Message"/>
+            <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PortTypeEndpoint1Binding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="PatientDetail_Operation">
+            <soap:operation soapAction="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientDetail_Operation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Output" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="PatientRoomNo_Operation">
+            <soap:operation soapAction="/SharedResources/Patient_Service.serviceagent/PortTypeEndpoint1/PatientRoomNo_Operation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="output" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="ReqPatientDetail_Message">
+        <wsdl:part element="ns0:PatientDetail" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="ResPatientDetail_Message">
+        <wsdl:part element="ns1:ResPatientDetail" name="Output"/>
+    </wsdl:message>
+    <wsdl:message name="Fault_Message">
+        <wsdl:part element="ns2:FaultDetails" name="Fault"/>
+    </wsdl:message>
+    <wsdl:message name="ReqRoomno_Message">
+        <wsdl:part element="ns3:Req_PatientRmchange" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="ResRoomno_Message">
+        <wsdl:part element="ns4:ResPatientroomNo" name="output"/>
+    </wsdl:message>
+</wsdl:definitions>

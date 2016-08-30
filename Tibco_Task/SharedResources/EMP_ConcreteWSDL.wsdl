@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema2.xsd" xmlns:ns1="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd4" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1470972527628/EMP_OperationImpl/Webservice/Emp" xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1470972527628/EMP_OperationImpl/Webservice/Emp">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd3" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd3">
+            <xs:element name="EmpReq">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="emp">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="no" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/WSDL/ADD_WSDL/ADD_SCHEMA/Schema2.xsd">
+            <xs:element name="FaultDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="FaultMsg" type="xs:string"/>
+                                    <xs:element name="FaultCode" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd4" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd4">
+            <xs:element name="Emp_Resp">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="empres">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="name" type="xs:string"/>
+                                    <xs:element name="desig" type="xs:string"/>
+                                    <xs:element name="sal" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="EmpServer__Process">
+        <wsdl:port binding="tns:SOAPEventSourceBinding" name="SOAPEventSource">
+            <soap:address location="http://localhost:1234/Webservice/Emp/EmpServer_Process"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="EMP_Operation">
+            <wsdl:input message="tns:Request_Message"/>
+            <wsdl:output message="tns:Response_Message"/>
+            <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SOAPEventSourceBinding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="EMP_Operation">
+            <soap:operation soapAction="/Webservice/AddServer_Process" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Output" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="Request_Message">
+        <wsdl:part element="ns0:EmpReq" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="Response_Message">
+        <wsdl:part element="ns1:Emp_Resp" name="Output"/>
+    </wsdl:message>
+    <wsdl:message name="Fault_Message">
+        <wsdl:part element="ns2:FaultDetail" name="Fault"/>
+    </wsdl:message>
+</wsdl:definitions>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Account xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/AccountDetail/Schema.xsd">
+    <ns0:Act>
+        <ns0:accno>101</ns0:accno>
+        <ns0:accname>james</ns0:accname>
+        <ns0:branch>Americanbank</ns0:branch>
+        <ns0:amount>1000</ns0:amount>
+    </ns0:Act>
+</ns0:Account>

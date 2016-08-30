@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:ns2="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd2" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns4="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd4" xmlns:ns="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd" xmlns:ns3="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd3" xmlns:tns="http://xmlns.example.com/1470973913930" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns5="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd5" targetNamespace="http://xmlns.example.com/1470973913930">
+    <import namespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd" location="Bal_ReqSchema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd2" location="Bal_ResponseSchema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd3" location="WithdrawalReq_Schema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd4" location="withdral_resSchema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/ATM/SharedResources/Schema.xsd5" location="Fault_Schema.xsd"/>
+    <message name="BalreqMessage">
+        <part name="Input" element="ns:AccRequest"/>
+    </message>
+    <message name="BalresMessage">
+        <part name="output" element="ns2:Bal_res"/>
+    </message>
+    <message name="withdralreqMessage">
+        <part name="Input" element="ns3:withdrawal_Req"/>
+    </message>
+    <message name="withresMessage">
+        <part name="output" element="ns4:withdra_res"/>
+    </message>
+    <message name="FaultMessage">
+        <part name="Fault" element="ns5:Fault_detail"/>
+    </message>
+    <portType name="PortType">
+        <operation name="Bal_Operation">
+            <input message="tns:BalreqMessage"/>
+            <output message="tns:BalresMessage"/>
+            <fault name="fault1" message="tns:FaultMessage"/>
+        </operation>
+        <operation name="withdrawl_Operation">
+            <input message="tns:withdralreqMessage"/>
+            <output message="tns:withresMessage"/>
+            <fault name="fault1" message="tns:FaultMessage"/>
+        </operation>
+    </portType>
+</definitions>

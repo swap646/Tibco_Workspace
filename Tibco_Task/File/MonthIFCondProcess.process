@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>File/MonthIFCondProcess.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="Month" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <root>
+            <xsl:choose>
+                <xsl:when test="number($Start/root/Month='1')">
+                    <Result>
+                        <xsl:value-of select="'Jan'"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="number($Start/root/Month='2')">
+                    <Result>
+                        <xsl:value-of select="&quot;Feb&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='3'))">
+                    <Result>
+                        <xsl:value-of select="&quot;Mar&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='4'))">
+                    <Result>
+                        <xsl:value-of select="&quot;April&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='5'))">
+                    <Result>
+                        <xsl:value-of select="&quot;May&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='6'))">
+                    <Result>
+                        <xsl:value-of select="&quot;June&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='7'))">
+                    <Result>
+                        <xsl:value-of select="&quot;July&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='8'))">
+                    <Result>
+                        <xsl:value-of select="&quot;August&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='9'))">
+                    <Result>
+                        <xsl:value-of select="&quot;September&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='10'))">
+                    <Result>
+                        <xsl:value-of select="&quot;octember&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='11'))">
+                    <Result>
+                        <xsl:value-of select="&quot;November&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:when test="exists(number($Start/root/Month='12'))">
+                    <Result>
+                        <xsl:value-of select="&quot;December&quot;"/>
+                    </Result>
+                </xsl:when>
+                <xsl:otherwise>
+                    <Result>
+                        <xsl:value-of select="&quot;&quot;"/>
+                    </Result>
+                </xsl:otherwise>
+            </xsl:choose>
+        </root>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="Result" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:endType>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1467765818189</pd:targetNamespace>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema4.xsd" xmlns:ns1="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema3.xsd" xmlns:ns4="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema1.xsd" xmlns:ns3="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1471185045101" xmlns:ns0="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://xmlns.example.com/1471185045101">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema3.xsd">
+            <xs:element name="Res_RchrgAfterAvailBalDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AfterRechargeBal">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Final_Bal" type="xs:decimal"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd">
+            <xs:element name="Req_AvailBalDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AvailBal">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="MobileNo" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd">
+            <xs:element name="Req_AfterAvailBalDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AfterAvailBalDetail">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="mobileno" type="xs:int"/>
+                                    <xs:element name="rechargeamt" type="xs:decimal"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema4.xsd">
+            <xs:element name="FaultDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Fault">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="FaultMsg" type="xs:string"/>
+                                    <xs:element name="FaultCode" type="xs:int"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema1.xsd">
+            <xs:element name="Res_AvailBalDetail">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="AvailBal">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Amount" type="xs:decimal"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="Mobile_service">
+        <wsdl:port binding="tns:PortTypeEndpoint1Binding" name="PortTypeEndpoint1">
+            <soap:address location="http://localhost:1234/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="FinalBalAfterRchrg_Operation">
+            <wsdl:input message="tns:Req_FinalBalMessage"/>
+            <wsdl:output message="tns:Res_FinalBalMessage"/>
+            <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+        </wsdl:operation>
+        <wsdl:operation name="AvlBal_Operation">
+            <wsdl:input message="tns:Req_AvlBalMessage"/>
+            <wsdl:output message="tns:Res_AvlBalMessage"/>
+            <wsdl:fault message="tns:Fault_Message" name="fault1"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PortTypeEndpoint1Binding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="FinalBalAfterRchrg_Operation">
+            <soap:operation soapAction="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/FinalBalAfterRchrg_Operation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="output" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="AvlBal_Operation">
+            <soap:operation soapAction="/SharedResources/Mobile_service.serviceagent/PortTypeEndpoint1/AvlBal_Operation" style="document"/>
+            <wsdl:input>
+                <soap:body parts="Input" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="Output" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault name="fault1" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="Req_FinalBalMessage">
+        <wsdl:part element="ns0:Req_AfterAvailBalDetail" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="Res_FinalBalMessage">
+        <wsdl:part element="ns1:Res_RchrgAfterAvailBalDetail" name="output"/>
+    </wsdl:message>
+    <wsdl:message name="Fault_Message">
+        <wsdl:part element="ns2:FaultDetail" name="Fault"/>
+    </wsdl:message>
+    <wsdl:message name="Req_AvlBalMessage">
+        <wsdl:part element="ns3:Req_AvailBalDetail" name="Input"/>
+    </wsdl:message>
+    <wsdl:message name="Res_AvlBalMessage">
+        <wsdl:part element="ns4:Res_AvailBalDetail" name="Output"/>
+    </wsdl:message>
+</wsdl:definitions>

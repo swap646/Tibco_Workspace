@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:Employee xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/Schema.xsd2">
+    <ns0:emp>
+        <ns0:no>102</ns0:no>
+        <ns0:name>Lemon</ns0:name>
+        <ns0:desig>SE</ns0:desig>
+        <ns0:sal>10000</ns0:sal>
+    </ns0:emp>
+    <ns0:emp>
+        <ns0:no>101</ns0:no>
+        <ns0:name>kavin</ns0:name>
+        <ns0:desig>SE</ns0:desig>
+        <ns0:sal>1000</ns0:sal>
+    </ns0:emp>
+</ns0:Employee>

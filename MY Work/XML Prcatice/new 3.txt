@@ -1,0 +1,8 @@
+deptno,deptname,deptdiv
+accno,accname,branch,amount
+patientname,patientno,doctorname,patientroomno
+mobno,amount
+mobno,balance
+Orderno,Item,Quantity,Price
+
+MobileNo,Balenqno,AvlBal,Rchrgamt

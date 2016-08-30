@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/ADB/ActiveDatabaseAdapterConfiguration">
+    <pd:name>Processes/Order_Pub_Process.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1472355570583</pd:targetNamespace>
+    <pd:activity name="Publish to Adapter">
+        <pd:type>com.tibco.plugin.ae.AEPublisherActivity</pd:type>
+        <pd:resourceType>ae.aepalette.aePubActivity</pd:resourceType>
+        <pd:x>289</pd:x>
+        <pd:y>68</pd:y>
+        <config>
+            <ae.aepalette.sharedProperties.transportChoice>jmsTopic</ae.aepalette.sharedProperties.transportChoice>
+            <ae.aepalette.sharedProperties.useRequestReply>false</ae.aepalette.sharedProperties.useRequestReply>
+            <ae.aepalette.sharedProperties.adapterService>/SharedResoreces/ActiveDatabaseAdapterConfiguration.adb#adapterService.Order_ADBSubscriber</ae.aepalette.sharedProperties.adapterService>
+            <tpPluginEndpointName>Order_ADBSubscriber</tpPluginEndpointName>
+            <ae.aepalette.sharedProperties.transportType>jmsTopic</ae.aepalette.sharedProperties.transportType>
+            <ae.aepalette.sharedProperties.jmsTopicSessionTopic>Order.topic</ae.aepalette.sharedProperties.jmsTopicSessionTopic>
+            <ae.aepalette.sharedProperties.deliveryMode>NONPERSISTENT</ae.aepalette.sharedProperties.deliveryMode>
+            <ae.aepalette.sharedProperties.timeToLive>0</ae.aepalette.sharedProperties.timeToLive>
+            <ae.aepalette.sharedProperties.jmsTopicSessionConnectionFactory>TopicConnectionFactory</ae.aepalette.sharedProperties.jmsTopicSessionConnectionFactory>
+            <ae.aepalette.sharedProperties.jmsSessionUsername/>
+            <ae.aepalette.sharedProperties.jmsSessionProviderURL>%%JmsProviderUrl%%</ae.aepalette.sharedProperties.jmsSessionProviderURL>
+            <ae.aepalette.sharedProperties.outputMeta>
+                <aeMeta>/AESchemas/ae/ADB/ActiveDatabaseAdapterConfiguration.aeschema#class.MENUORDER</aeMeta>
+            </ae.aepalette.sharedProperties.outputMeta>
+            <ae.aepalette.sharedProperties.autoGenClientID>true</ae.aepalette.sharedProperties.autoGenClientID>
+        </config>
+        <pd:inputBindings>
+            <aePubInputType>
+                <body>
+                    <ns:MENUORDER>
+                        <NO>
+                            <xsl:value-of select="102"/>
+                        </NO>
+                        <ITEMS>
+                            <xsl:value-of select="'sop'"/>
+                        </ITEMS>
+                        <PRICE>
+                            <xsl:value-of select="500"/>
+                        </PRICE>
+                    </ns:MENUORDER>
+                </body>
+            </aePubInputType>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Publish to Adapter</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Publish to Adapter</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:ATMCard xmlns:ns0="http://www.tibco.com/schemas/Tibco_Task/SharedResources/XML/ATM_Info/Schema.xsd">
+    <ns0:Detail>
+        <ns0:CardNo>1234567891011</ns0:CardNo>
+        <ns0:ValidDate>12/14</ns0:ValidDate>
+        <ns0:ExpDate>12/16</ns0:ExpDate>
+        <ns0:Name>goutam</ns0:Name>
+        <ns0:CVV>456</ns0:CVV>
+        <ns0:Pin>903</ns0:Pin>
+    </ns0:Detail>
+    <ns0:Detail>
+        <ns0:CardNo>123456789</ns0:CardNo>
+        <ns0:ValidDate>04/12</ns0:ValidDate>
+        <ns0:ExpDate>04/16</ns0:ExpDate>
+        <ns0:Name>swapna</ns0:Name>
+        <ns0:CVV>123</ns0:CVV>
+        <ns0:Pin>1234</ns0:Pin>
+    </ns0:Detail>
+    <ns0:Detail>
+        <ns0:CardNo>123456789</ns0:CardNo>
+        <ns0:ValidDate>04/12</ns0:ValidDate>
+        <ns0:ExpDate>04/16</ns0:ExpDate>
+        <ns0:Name>swapna</ns0:Name>
+        <ns0:CVV>123</ns0:CVV>
+        <ns0:Pin>1234</ns0:Pin>
+    </ns0:Detail>
+</ns0:ATMCard>

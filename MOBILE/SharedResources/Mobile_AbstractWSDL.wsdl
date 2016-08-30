@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema1.xsd" xmlns:ns="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd" xmlns:ns4="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema3.xsd" xmlns:ns3="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd" xmlns:tns="http://xmlns.example.com/1471180874289" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns5="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema4.xsd" targetNamespace="http://xmlns.example.com/1471180874289">
+    <import namespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema.xsd" location="Req_GetAvlBalSchema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema2.xsd" location="Req_AfterRchrgBalSchema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema3.xsd" location="Res_AfterRchrgBalSchema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema4.xsd" location="Fault_Schema.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/MOBILE/SharedResources/Schema1.xsd" location="Res_GetAvlBalSchema.xsd"/>
+    <message name="Req_AvlBalMessage">
+        <part name="Input" element="ns:Req_AvailBalDetail"/>
+    </message>
+    <message name="Res_AvlBalMessage">
+        <part name="Output" element="ns2:Res_AvailBalDetail"/>
+    </message>
+    <message name="Req_FinalBalMessage">
+        <part name="Input" element="ns3:Req_AfterAvailBalDetail"/>
+    </message>
+    <message name="Res_FinalBalMessage">
+        <part name="output" element="ns4:Res_RchrgAfterAvailBalDetail"/>
+    </message>
+    <message name="Fault_Message">
+        <part name="Fault" element="ns5:FaultDetail"/>
+    </message>
+    <message name="Message"/>
+    <portType name="PortType">
+        <operation name="AvlBal_Operation">
+            <input message="tns:Req_AvlBalMessage"/>
+            <output message="tns:Res_AvlBalMessage"/>
+            <fault name="fault1" message="tns:Fault_Message"/>
+        </operation>
+        <operation name="FinalBalAfterRchrg_Operation">
+            <input message="tns:Req_FinalBalMessage"/>
+            <output message="tns:Res_FinalBalMessage"/>
+            <fault name="fault1" message="tns:Fault_Message"/>
+        </operation>
+    </portType>
+</definitions>
